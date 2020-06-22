@@ -1,14 +1,9 @@
-// @flow strict
-
 import * as React from 'react';
-
-type Props = {||};
-
-class app extends React.Component<Props> {
+class app extends React.Component {
     render() {
         return (
             <div>
-                
+                嘻嘻嘻。。
             </div>
         );
     }
