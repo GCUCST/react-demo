@@ -2,9 +2,22 @@
 
 import * as React from 'react';
 import  CommentAdd  from "../comment-add/comment-add";
+import axios from  'axios'
 
 
 class CommentList extends React.Component{
+
+    componentDidMount(){
+        fetch("/api/arr").then(res=>{
+            console.log(res)
+        })
+        axios.get("/api/arr").then(res=>{
+            console.log(res)
+        })
+
+        
+
+    }
     
     constructor(props){
        super(props) 
