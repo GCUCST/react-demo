@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 
-class list_body extends React.Component{
+class CommentItem extends React.Component{
     render() {
         return (
             <div>
@@ -13,4 +13,4 @@ class list_body extends React.Component{
     }
 }
 
-export default list_body;
+export default CommentItem;
