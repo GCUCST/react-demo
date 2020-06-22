@@ -3,6 +3,7 @@
 import * as React from 'react';
 import  CommentAdd  from "../comment-add/comment-add";
 import axios from  'axios'
+import PubSub from 'pubsub-js'
 
 
 class CommentList extends React.Component{
@@ -14,8 +15,6 @@ class CommentList extends React.Component{
         axios.get("/api/arr").then(res=>{
             console.log(res)
         })
-
-        
 
     }
     
@@ -47,10 +46,14 @@ class CommentList extends React.Component{
             ll
         })
     }
+    mypubsub=()=>{
+        PubSub.publish("mypub","132465")
+    }
 
     render() {
         return (
             <div>
+                <button onClick={this.mypubsub} >发布和订阅</button>
                 <CommentAdd addToList = {this.addToList} />
                 body...
                 {/* <input type="button" value="点击测试"  onClick= {this.addToList}/> */}

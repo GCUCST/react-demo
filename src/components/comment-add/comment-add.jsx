@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PubSub from 'pubsub-js'
 
 
 class CommentAdd extends React.Component{
@@ -7,6 +8,12 @@ class CommentAdd extends React.Component{
         super(props)
        
         this.fun = this.fun.bind(this)
+    }
+
+    componentDidMount(){
+        PubSub.subscribe("mypub",(msg,data)=>{
+            console.log(msg,data)
+        })
     }
 
     fun(){
