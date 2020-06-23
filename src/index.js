@@ -4,12 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom"
-
+import { Provider } from 'react-redux'
+import {createStore} from 'redux'
+import {counter} from './redux/reducers'
+const store = createStore(counter);
+// import 'antd-mobile/dist/antd-mobile.css'; 
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Provider store={store}>
     <App />
-  </BrowserRouter>,
+  </Provider>,
   document.getElementById('root')
 );
 

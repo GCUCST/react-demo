@@ -4,14 +4,16 @@ import './App.css';
 import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
 import About from './views/about';
 import Home from './views/home';
-
+import MyUseDemo from './antcomponent/myusedemo'
+import MyRedux from './myredux/MyRedux'
+import Index from './redux/index'
 function App() {
 
   return (
     <div className="App">
       {/* <ComponentList />
       <RouterDemo /> */}
-      <div>
+      {/* <div>
           <h1>路由demo</h1>
           <div>
               <NavLink to="/about">about</NavLink><br/>
@@ -26,8 +28,10 @@ function App() {
 
           </div>
 
-      </div>
-
+      </div> */}
+      {/* <MyUseDemo /> */}
+      {/* <MyRedux/> */}
+      <Index/>
     </div>
   );
 }
