@@ -1,19 +1,32 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 // import { DECREMENT, INCREMENT } from "./action-types";
-import * as actions from './actions'
+// import * as actions from './actions'
 
-export default class app extends Component {
+import {connect} from 'react-redux'
+
+import {incrementCreator,decrementCreator} from './actions'
+
+ class App extends Component {
+
+    static propTypes = {
+      count:PropTypes.number.isRequired,
+      incrementCreator:PropTypes.func.isRequired,
+      decrementCreator:PropTypes.func.isRequired
+    }
+
     increment = () => {
         // 1. 得到选择增加的数量
         const number = this.select.value * 1;
         // 2.调用store方法更新状态
-        this.props.store.dispatch(actions.incrementCreator(number));
+        this.props.incrementCreator(number);
       };
     
       decrement = () => {
         // 1. 得到选择增加的数量
         const number = this.select.value * 1;
-        this.props.store.dispatch(actions.decrementCreator(number));
+        this.props.decrementCreator(number);
+
       };
     
       incrementIfOdd = () => {
@@ -23,7 +36,8 @@ export default class app extends Component {
         const count = this.props.store;
         // 3.
         if (count % 2 === 1)
-          this.props.store.dispatch(actions.incrementCreator(number));
+        this.props.incrementCreator(number);
+
       };
       incrementAsync = () => {
         // 1. 得到选择增加的数量
@@ -31,14 +45,13 @@ export default class app extends Component {
         // 2.得到原本的count状态，计算新的count
         // 3.更新状态
         setTimeout(() => {
-          this.props.store.dispatch(actions.incrementCreator(number));
+          this.props.incrementCreator(number);
+
         }, 1000);
       };
     
       render() {
-        var count = this.props.store.getState();
-        console.log(this.props.store.getState());
-        // console.log("===========" + this.props.store.getState() + "===" + count);
+        const count = this.props.count
         return (
           <div>
             <p>click {count} times</p>
@@ -56,3 +69,8 @@ export default class app extends Component {
         );
       }
 }
+
+
+export default connect(
+  state=>({count:state}),{incrementCreator,decrementCreator}
+)(App)

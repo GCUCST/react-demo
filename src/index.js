@@ -3,26 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 import MyApp from './react-redux/app'
+import {Provider} from 'react-redux'
 import * as serviceWorker from './serviceWorker';
 
 // import { createStore } from 'redux'
 // import { counter } from './mainapp/reducers'
 // const store = createStore(counter);
-import store from './mainapp/store'
+import store from './react-redux/store'
 // import 'antd-mobile/dist/antd-mobile.css'; 
 
-function render() {
+
   ReactDOM.render(
-    <MyApp store={store} />,
+
+    <Provider store={store}>
+     <MyApp  />
+    </Provider>
+    ,
     document.getElementById('root')
   );
-}
 
-render();
-
-store.subscribe(() => {
-  render();
-})
 
 
 
