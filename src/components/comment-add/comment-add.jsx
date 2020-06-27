@@ -11,9 +11,7 @@ class CommentAdd extends React.Component{
     }
 
     componentDidMount(){
-        PubSub.subscribe("mypub",(msg,data)=>{
-            console.log(msg,data)
-        })
+       
     }
 
     fun(){
