@@ -14,9 +14,8 @@ import {incrementCreator,decrementCreator} from './actions'
       incrementCreator:PropTypes.func.isRequired,
       decrementCreator:PropTypes.func.isRequired
     }
-
     increment = () => {
-        // 1. 得到选择增加的数量
+        // 1. 得到选择增加的数量.
         const number = this.select.value * 1;
         // 2.调用store方法更新状态
         this.props.incrementCreator(number);
