@@ -2,9 +2,21 @@
 
 import * as React from 'react';
 import  CommentAdd  from "../comment-add/comment-add";
+import axios from  'axios'
+import PubSub from 'pubsub-js'
 
 
 class CommentList extends React.Component{
+
+    componentDidMount(){
+        fetch("/api/arr").then(res=>{
+            console.log(res)
+        })
+        axios.get("/api/arr").then(res=>{
+            console.log(res)
+        })
+
+    }
     
     constructor(props){
        super(props) 
@@ -34,10 +46,14 @@ class CommentList extends React.Component{
             ll
         })
     }
+    mypubsub=()=>{
+        PubSub.publish("mypub","132465")
+    }
 
     render() {
         return (
             <div>
+                <button onClick={this.mypubsub} >发布和订阅</button>
                 <CommentAdd addToList = {this.addToList} />
                 body...
                 {/* <input type="button" value="点击测试"  onClick= {this.addToList}/> */}
